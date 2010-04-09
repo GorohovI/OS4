@@ -11,9 +11,9 @@ void sigevent(int k)
 
 int main (int argс, char* argv[])
 { //создаем сою группу процессов
-  sigaction new,old;
+  struct sigaction new,old;
   new.sa_handler=&sigevent;
-  sigemptyset(new.sa_mask);
+//  sigemptyset(new.sa_mask);
   new.sa_flags=0;
   sigaction(SIGUSR1,&new,&old);
   if(setpgid(0,0) != 0)
